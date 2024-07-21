@@ -24,18 +24,39 @@
            
         </header>
         <main>
-            {% for product in products_list %}
-                <div class="card text-start">
-                    {% comment %} <img class="card-img-top" src="holder.js/100px180/" alt="Title" /> {% endcomment %}
-                    <div class="card-body">
-                        <h4 class="card-title">{{product.name}}</h4>
-                        <p class="card-text">
-                            {{product.description}} <b>{{product.price}}</b>
-                        </p>
-                    </div>
-                </div>
-                
-            {% endfor %}
+            <div
+                class="table-responsive"
+            >
+                <table
+                    class="table table-striped table-hover table-borderless table align-middle"
+                >
+                    <thead class="table-light">
+                        <caption>
+                           Products
+                        </caption>
+                        <tr>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-group-divider">
+                        {% for product in products_list %}
+                        <tr
+                            class="table"
+                        >
+                            <td scope="row">{{product.name}}</td>
+                            <td>{{product.description}}</td>
+                            <td>{{product.price}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    <tfoot>
+                        
+                    </tfoot>
+                </table>
+            </div>
+            
         </main>
         <footer>
             <!-- place footer here -->
