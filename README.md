@@ -1,2 +1,2 @@
-# coffee-shop
+# coffee-shop ☕🍪
 Django Course project
