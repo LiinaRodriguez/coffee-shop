@@ -7,12 +7,17 @@ from django.views import generic
 from django.shortcuts import render
 # Create your views here.
 
-class ProductListView(TemplateView):
+class ProductListView(generic.ListView):
+    model = Product
     template_name = 'products/products_list.html'
-
-    def get_context_data(self):
-        product_list = Product.objects.all()
-        return {'products_list': product_list}
+    context_object_name = 'products'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        categories = Product.CATEGORY_CHOICES
+        categorized_products = {category[1]: Product.objects.filter(category=category[0]) for category in categories}
+        context['categorized_products'] = categorized_products
+        return context
 
 class ProductFormView(generic.FormView):
     template_name = 'products/add_products.html'
