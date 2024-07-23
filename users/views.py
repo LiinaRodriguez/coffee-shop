@@ -1,9 +1,11 @@
 from django.http import request
 from django.contrib.auth.views import LoginView
-from django.shortcuts import render
 from .utils import create_guest_user
 from django.shortcuts import redirect
 from django.contrib.auth import login
+from django.contrib.auth.forms import UserCreationForm
+from django.views import generic
+from django.urls import reverse_lazy
 
 # Create your views here.
 class CustomLoginView(LoginView):
@@ -17,8 +19,7 @@ class CustomLoginView(LoginView):
         else:
             return super().post(request, *args, **kwargs)
 
-def HomeView(request):
-    return render(request, 'home.html')
-
-def Welcome(request):
-    return render(request, 'home.html')
+class RegisterView(generic.CreateView):
+    form_class = UserCreationForm
+    template_name = "users/register.html"
+    success_url = reverse_lazy("login")

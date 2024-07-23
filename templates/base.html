@@ -1,27 +1,60 @@
-<!doctype html>
-<html lang="en">
-    <head>
-        <title>🍪Coffee Shop</title>
-        <!-- Required meta tags -->
-        <meta charset="utf-8" />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, shrink-to-fit=no"
-        />
-
-        <!-- Tailwind -->
-        <script src="https://cdn.tailwindcss.com"></script>
-    </head>
-
-    <body>
-        <header>
-            <!-- place navbar here -->
-        </header>
-        <main>
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Coffe Shop</title>
+    <meta charset="utf-8" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="relative w-screen h-screen overflow-hidden">
+        <img class="w-full h-full object-cover" src="{% static 'core/images/welcome-to-coffee-shop.jpg' %}" alt="Coffee Shop" />
+        <div class="absolute inset-0 flex flex-col items-center justify-center text-white bg-black bg-opacity-50">
+            <div>
+                <div class="sm:hidden">
+                  <label for="Tab" class="sr-only">Tab</label>
+                  <select id="Tab" class="w-full rounded-md border-gray-200">
+                    <option>Menu</option>
+                    <option>Checkout</option>
+                    <option select>Log out</option>
+                  </select>
+                </div>
+              
+                <div class="hidden sm:block">
+                  <div class="">
+                    <nav class="-mb-px flex gap-6" aria-label="Tabs">
+                      <a
+                        href="{% url "products" %}"
+                        class=" inline-block rounded-full border border-2 border-[#0e0100] bg-[#754b32] p-3 text-[#0e0100] hover:bg-white/20 hover:text-[#0e0100] focus:outline-none active:text-white"
+                      >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8l-6-6z"/><path d="M14 3v5h5M16 13H8M16 17H8M10 9H8"/></svg>
+                      </a>
+              
+                      <a
+                        href="#"
+                        class=" inline-block rounded-full border border-2 border-[#0e0100] bg-[#754b32] p-3 text-[#0e0100] hover:bg-white/20 hover:text-[#0e0100] focus:outline-none active:text-white"
+                      >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M7 15h0M2 9.5h20"/></svg>
+                      </a>
+                      <form action="{% url 'logout' %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="inline-block rounded-full border border-2 border-[#0e0100] bg-[#754b32] p-3 text-[#0e0100] hover:bg-white/20 hover:text-[#0e0100] focus:outline-none  active:text-white">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M10 3H6a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h4M16 17l5-5-5-5M19.8 12H9"/>
+                          </svg>
+                        </button>
+                      </form>
+                    </nav>
+                  </div>
+                </div>
+              </div>
             {% block content %}{% endblock content %}
-        </main>
-        <footer>
-            <!-- place footer here -->
-        </footer>
-    </body>
+        </div>
+    </div>
+</body>
 </html>
