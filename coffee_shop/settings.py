@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     'crispy_tailwind',
     'core',
     'products',
-    'users'
+    'users',
+    'orders',
 ]
 
 AUTHENTICATION_BACKENDS = [
