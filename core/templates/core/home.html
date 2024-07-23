@@ -1,0 +1,15 @@
+{% extends "home.html" %}
+{% load static %}
+{% load tailwind_filters %}
+{% block content %}
+    <h1 class="text-4xl md:text-6xl font-bold mb-4">Welcome to our Coffee Shop</h1>
+    <p class="text-lg md:text-2xl mb-6 text-center font-mono">
+        Satisfy your cravings with our delicious meals <br/>
+        and treats.Order online for fast delivery <br/> 
+        and fresh ingredients in every bite!
+    </p>
+    <div class="flex gap-4">
+        <a href="{% url 'login' %}" class="px-4 py-2 bg-[#754b32]/30 backdrop-saturate-50 hover:backdrop-saturate-150 text-white font-semibold rounded-lg shadow-md">Login</a>
+        <a href="/guest" class="px-4 py-2 bg-[#754b32]/30 backdrop-saturate-50 hover:backdrop-saturate-150 text-white font-semibold rounded-lg shadow-md">Guest</a>
+    </div>
+{% endblock content %}

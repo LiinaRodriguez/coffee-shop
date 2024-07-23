@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load tailwind_filters %}
+{% block content %}
+<div class=" mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-lg text-center">
+        <h1 class="text-3xl font-bold sm:text-4xl text-brown-700">Welcome to COFFEE SHOP☕🍪</h1>
+        <p class="mt-4 text-brown-600">
+            Please log in to place your order, check our menu, and enjoy our delicious meals.
+        </p>
+    </div>
+    <form action="" method="post" class="mx-auto mt-8 max-w-md space-y-6 bg-white p-8 rounded-lg shadow-lg">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <div class="flex items-center justifybetween">
+            <p class="text-sm text-brown-500">
+                No account?
+                <a class="text-brown-700 hover:underline" href="#">Sign up</a>
+            </p>
+            <button
+                type="submit"
+                class="inline-block rounded-lg bg-red-600 px-5 py-3 text-sm font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-50"
+            >
+                <span class="inline-flex items-center">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 1.104-.896 2-2 2s-2-.896-2-2 .896-2 2-2 2 .896 2 2zm-2 3a4 4 0 100-8 4 4 0 000 8zm9 7a6.978 6.978 0 01-2.262-.402A4.992 4.992 0 0015 17a5 5 0 00-10 0c0 .838.207 1.628.573 2.308A6.978 6.978 0 013 20h18a6.978 6.978 0 01-2.262-.402A4.992 4.992 0 0019 17c0-.838-.207-1.628-.573-2.308A6.978 6.978 0 0121 20z"></path></svg>
+                    Sign in
+                </span>
+            </button>
+        </div>
+    </form>
+</div>
+
+{% endblock content %}
+
+<p>
+    <label for="id_password">Password:</label>
+    <input type="password" name="password" autocomplete="current-password" required="" id="id_password">
+    
+    
+      
+    
+  </p>
+  <p>
+    <label for="id_username">Username:</label>
+    <input type="text" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="150" required="" id="id_username">
+    
+    
+  </p>
