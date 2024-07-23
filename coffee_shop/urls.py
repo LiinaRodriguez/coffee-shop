@@ -24,6 +24,7 @@ urlpatterns = [
     path('products/', include('products.urls')),
     path('', include('core.urls')),
     path('users/', include('users.urls')),
+    path("convert/", include("guest_user.urls")),
 ]
 
 if settings.DEBUG:

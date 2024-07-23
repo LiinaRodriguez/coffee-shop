@@ -41,11 +41,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'guest_user',
     'crispy_forms',
     'crispy_tailwind',
     'core',
     'products',
     'users'
+]
+
+AUTHENTICATION_BACKENDS = [
+   "django.contrib.auth.backends.ModelBackend",
+   # it should be the last entry to prevent unauthorized access
+   "guest_user.backends.GuestBackend",
 ]
 
 MIDDLEWARE = [
