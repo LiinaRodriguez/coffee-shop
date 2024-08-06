@@ -7,8 +7,8 @@
   - ✅Home Page
   - ✅Login
   - ✅Login as guest
-  - ⬜Take orders
-  - ⬜Select products
+  - ✅Take orders
+  - ✅Select products
   - ⬜Checkout
 
 - Install
