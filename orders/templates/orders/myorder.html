@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+Mi orden - yey  ☕
+{{order.user.username}}
+{{order.order_date|date}}
+
+{% for product_order in order.orderproduct_set.all %}
+{{product_order.product.name}}
+{{product_order.product.price}}
+{% endfor %}
+
+{% endblock content %}

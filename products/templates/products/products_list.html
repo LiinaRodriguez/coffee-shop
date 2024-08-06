@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
-{% comment %} Another menu .. hoho {% endcomment %}
 <div class="x-4 bg-white/30 backdrop-saturate-50 rounded-md mx-auto max-w-screen-xl py-8 sm:px-6 lg:px-8  md:w-3/5 p-4 h-96">
     <h1 class="text-4xl md:text-6xl text-[#0e0100] font-bold mb-4 text-center font-mono">Menu</h1>
     <h1 class="text-2xl md:text-4xl text-[#0e0100] font-bold mb-4 text-center font-sans"> ☕</h1>
+    <div class="overflow-y-auto h-full">
     <div class="space-y-8">
         {% for category, products in categorized_products.items %}
         <div>
@@ -29,7 +29,9 @@
                         ${{ product.price }}
                     </div>
                     <div class="col-span-12 md:col-span-3 flex justify-start mt-2 md:mt-0">
-                        <form>
+                        <form action= "{% url "add_order_product" %}" method='post'>
+                            {% csrf_token %}
+                            <input type='hidden' name='product' value= '{{product.id}}' />
                             <button class="bg-[#0e0100] text-white font-bold py-2 px-4 rounded-full transition hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
                                 Add
                             </button>
@@ -41,5 +43,6 @@
         </div>
         {% endfor %}
     </div>
+</div>
 </div>
 {% endblock content %}
